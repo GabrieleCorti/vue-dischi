@@ -16,7 +16,7 @@
             </select>
         </header>
         <div class="card_container">
-            <div class="card" v-for="(item, index) in albums" v-if="item.genre == selectedGenre">
+            <div class="card" v-for="(item, index) in albums" v-if="item.genre == selectedGenre || selectedGenre == 'All'">
                 <div class="poster_wrapper">
                     <img :src="item.poster" :alt="item.poster">
                 </div>
