@@ -9,7 +9,22 @@
 </head>
 <body>
     <div id="app">
-
+        <header>
+            <select name="casa" id="genre" v-model="selectedGenre">
+                <option value="All">All</option>
+                <option v-for="(item, index) in genres" :value="item">{{item}}</option>
+            </select>
+        </header>
+        <div class="card_container">
+            <div class="card" v-for="(item, index) in albums" v-if="item.genre == selectedGenre">
+                <div class="poster_wrapper">
+                    <img :src="item.poster" :alt="item.poster">
+                </div>
+                <h3>{{item.title}}</h3>
+                <p><small>{{item.genre}}</small></p>
+                <p><small>{{item.year}}</small></p>
+            </div>       
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
         integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
